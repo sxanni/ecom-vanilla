@@ -43,6 +43,17 @@ function toggle(e) {
     this.closest('.has-child').classList.toggle('expand')
 }
 
+//slider (swipper initialization boilerplaaate)
+const swiper = new Swiper('.swiper', {
+    loop: true,
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+  });
+
 
 function myFunction() {
     var element = document.body;
