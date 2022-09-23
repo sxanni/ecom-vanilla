@@ -12,7 +12,7 @@ Fonts:
 
   --primary-color: #ff6b6b;
   --secondary-color: #D2001A;
-  /* --secondary-color: #794afa; */
+  --secondary-purp-color: #794afa;
   --secondary-dark-color: #181818;
 
   --white-color: #ffffff;
@@ -480,11 +480,12 @@ select {
   position: absolute;
   top: -15px;
   left: 0;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--percent50);
   background-color: var(--light-bg-color);
   z-index: -2;
+  /* border:ridge 1px; */
 }
 
 .circle::before {
@@ -496,7 +497,7 @@ select {
   position: absolute;
   bottom: 5px;
   right: 5px;
-  opacity: 0.5;
+  opacity: 0.6;
   z-index: -1;
 
 }
@@ -907,7 +908,56 @@ form.search button:hover {
   opacity: 1;
 }
 
-/* ------------------------ */
+
+/* 
+/*---------------------------------
+    ------ 04)  PRODUCT BLOCK STYLES
+    --------------------------------------------------------------------------------------*/
+    
+    .sectop{
+      justify-content:space-between;
+      padding-bottom: 0.5em;
+      margin-bottom: 2em;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .sectop h2 {
+      position: relative;
+      font-size:1.5em;
+      font-weight: var(--fw7);
+    }
+    
+    .sectop h2 span:not(.circle){
+      padding: 0 0 0 2em;
+    }
+    
+    .sectop h2 .circle {
+      top: -5px;
+    }
+    
+    .trending .products {
+      flex: 0 0 33.333%;
+    }
+    
+   /*---------------------------------
+    ------ 04)  PRODUCT
+    --------a.  Global product
+    --------------------------------------------------------------------------------------*/
+
+    .products .offer{
+      text-align: center;
+      margin-bottom: 1.5em;
+    }
+    .products .offer p{
+      text-transform: uppercase;
+      margin-bottom: .5em;
+    }
+    .products .offer ul{
+      gap: 1em;
+    }
+
+
+
+    /* ------------------------ */
 
 
 /* Remove all animations and transitions for people that prefer not to see them */
