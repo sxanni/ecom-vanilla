@@ -10,10 +10,10 @@ Fonts:
 :root {
 
 
-  --primary-color: #ff6b6b;
+  --primary-color: #ff6b6b;                   
   --secondary-color: #D2001A;
-  --secondary-purp-color: #794afa;
-  --secondary-dark-color: #181818;
+  --secondary-purp-color: #794afa;    
+  --secondary-dark-color: #181818;  
 
   --white-color: #ffffff;
   --light-bg-color: #f2f3f5;
@@ -1005,7 +1005,9 @@ form.search button:hover {
       opacity:1;
     }
 
-    .products .hoverable li a:hover {
+
+    /* this controls icon reaction to hover */
+    .products .hoverable li a:hover { 
      color: var(--white-color);
      background-color: var(--dark-color);
     }
@@ -1027,33 +1029,193 @@ form.search button:hover {
       transform: translateX(0);
       opacity: 1;
     }
-
-
+    
+    
+    
     /* this staggers the above transitions so the come out from being hidden one at a time */
     .products .hoverable li:last-child { 
       transition-delay: .1s;
     }
-
     
+    
+        .products .discount {
+          top: auto;
+          right: 0;
+          left: auto;
+          bottom: 0;
+          background-color: transparent;
+          z-index: 1;
+        }
+
+
+        .products .discount::before{
+          background-color: var(--secondary-dark-color);
+
+        }
+
+        .products .discount span {
+          position: relative;
+          font-size: var(--font-smaller);
+          font-weight: var(--fw5);
+          color: var(--white-color);
+        }
+
+        .products .content {
+
+          display:flex;
+          flex-direction: column;
+
+        }
+
+        .products:where(.big,.main.one) .content {
+          gap:1em ;
+          margin-top: 1.25em;
+        }
+
+        .products .rating {
+          display: flex;
+          align-items: center ;
+          gap: 0.5em;
+        }
+
+        .products .rating .stars {
+          width: 110px;
+          height: 30px;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z' fill='rgba(241,196,14,1)'/%3E%3C/svg%3E");          background-position-y: top ;
+          background-repeat-y:no-repeat;
+        }
+
+        .products h3 {
+          font-family: 'Rubik';
+          font-size: 1em;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+        }
+        
+        .products h3 a {
+        text-decoration: underline;
+        }
+
+        .products .price .current {
+          font-size: calc(1em + 1vw);
+          color: var(--primary-color);
+          margin-right: 0.25em;
+        }
+
+        .products .price .normal{
+          color: var(--light-text-color);
+          text-decoration: line-through;
+        }
+
+        .products .stock .qty{
+
+          display: flex;
+          justify-content:space-between;
+
+        }
+
+        .products .stock .bar{
+          height: 5px;
+          margin-top: 1em;
+          background-color: var(--border-color);
+          overflow: hidden;
+        }
+
+        .products .stock .available {
+          height: 5px;
+          width: 21%;
+          background-color: var(--secondary-color);
+
+        }
+
+        .products .item {
+          display:flex;
+          position: relative;
+        }
+
+        .products .stock-danger {
+          color: var(--primary-color);
+        }
+
+        .flexwrap .row {
+          flex: 0 0 100%;
+          width: 100%;
+          margin-bottom: 2em;
+        }
+
+
+
+
     /*---------------------------------
      ------ 04)  PRODUCT
      --------b.  BIG product
      --------------------------------------------------------------------------------------*/
-    .products.big .item {
-      flex-direction: column;
-      padding: 2.5em;
-      border:2px solid var(--secondary-dark-color);
-      border-radius: 7px;
-      max-width: 460px;
-      margin: 0 auto ;
-    }
+     .products.big .item {
+       flex-direction: column;
+       padding: 2.5em;
+       border:2px solid var(--secondary-dark-color);
+       border-radius: 7px;
+       max-width: 460px;
+       margin: 0 auto ;
+      }
+      
+      
+      
+      /*---------------------------------
+       ------ 04)  PRODUCT
+       --------b.  MINI product
+       --------------------------------------------------------------------------------------*/
+
+       .products.mini .item {
+        margin-bottom: 2em;
+       }
 
 
-    
+       .products.mini .media {
+        width: 130px;
+        height: 160px;
+        margin-right: 1.23em;
+       }
+
+
+
+
+       .products:where(.mini, .main) h3 {
+        font-weight: 400;
+       }
+
+
+
+        /*---------------------------------
+       ------ 04)  PRODUCT
+       --------d.  MAIN product
+       --------------------------------------------------------------------------------------*/
+
+
+
+       .products.main .item{
+        flex-direction: column;
+        flex:0 0 100%;
+        padding:0 0.938em;
+        padding-bottom:2em;
+        /* margin-bottom: 20em; */
+       }
+
+       
+
+       .products.main .media{
+        height: 390px;
+       }
+
+
+
 
 
 
     /* ------------------------ */
+
 
 
 /* Remove all animations and transitions for people that prefer not to see them */
@@ -1064,6 +1226,30 @@ form.search button:hover {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+
+
+@media screen and (min-width:481px) {
+  .products.main .item {
+    flex: 0 0 33.3333%;
+  }
+}
+
+@media screen and(min-width:768px) {
+  .products .price .current {
+
+    font-size: 1.25em;
+  }
+
+  .products.mini {
+    flex: 0 0 50%;
+  }
+
+  .products.main .item {
+    flex: 0 0 33.3333%;
+  }
+
 }
 
 
@@ -1274,12 +1460,16 @@ form.search button:hover {
 
   /* products */
   .trending .products {
-    flex: 0 0 33.333%;
+    flex: 0 0 33.3333%;
   }
 
   .products.big .media {
     max-height: 373px;
      
+  }
+
+  .products.mini {
+    flex: 0 0 25%;
   }
 
 }

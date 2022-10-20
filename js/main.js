@@ -55,7 +55,20 @@ const swiper = new Swiper('.swiper', {
   });
 
 
-function myFunction() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
+  function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+      var r = document.querySelector(':root');
+    r.style.setProperty(' --secondary-dark-color', '#f2f3f5');
+    r.style.setProperty(' --dark-color', '#ffffff');
+    r.style.setProperty(' --light-bg-color', '#181818');
+    r.style.setProperty(' --white-color', '#0a021c');
+    r.style.setProperty(' --primary-color', '#794afa');
+    // document.documentElement.style.setProperty(' --secondary-dark-color', '#f2f3f5');
+    // document.documentElement.style.setProperty(' --dark-color', '#ffffff');
+    // document.documentElement.style.setProperty(' --light-bg-color', '#181818');
+    // document.documentElement.style.setProperty(' --white-color', '#0a021c');
+
+
+    
  }
